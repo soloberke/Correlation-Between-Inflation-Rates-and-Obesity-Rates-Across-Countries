@@ -1,107 +1,91 @@
 Understanding Obesity Through Economic and Environmental Factors
-Project Overview
+1. Motivation
 
-Obesity is one of the most widespread global health challenges today, affecting millions of people worldwide and creating major public health concerns. Although obesity is commonly associated with individual lifestyle choices, broader economic and environmental conditions may also influence obesity levels across countries.
+Obesity is one of the most widespread global health challenges today. Although obesity is often associated with personal lifestyle choices, broader economic and environmental conditions may also influence obesity levels across countries.
 
-This project investigates whether macroeconomic factors such as inflation and environmental factors such as fast food availability are associated with obesity rates across countries.
+In particular, inflation may affect food affordability, consumption behavior, and access to healthier food options. Similarly, fast food availability may shape dietary patterns and eating habits. Countries with easier access to fast food and changing economic conditions may exhibit different obesity patterns.
 
-By combining multiple global datasets and applying statistical analysis together with machine learning methods, the project aims to explore whether these variables can explain or predict obesity levels at a country scale.
+In this project, I aim to explore the relationship between inflation rates, fast food availability, and obesity rates across countries by combining multiple global datasets. I will investigate whether countries with higher inflation rates and higher fast food density also demonstrate higher obesity rates, and whether these variables can meaningfully explain obesity differences between countries.
 
-Motivation
+By examining these relationships, this project aims to better understand the economic and environmental dimensions of obesity and highlight the complexity of global health inequalities.
 
-The motivation behind this project comes from the idea that economic pressure and food accessibility may influence dietary behavior.
+2. Research Questions and Sub-Questions
+Main Question
 
-Rising inflation can affect:
+How do inflation rates and fast food availability affect obesity rates across countries?
 
-food affordability
-purchasing behavior
-consumption habits
-access to healthier food options
+Sub-Questions
+Does higher inflation relate to higher obesity rates?
+Does fast food density increase obesity levels?
+Do countries with higher fast food density exhibit higher obesity rates?
+Can inflation and fast food density together predict obesity rates?
+Are these relationships statistically significant?
+3. Hypotheses
+H1
 
-At the same time, fast food availability may shape eating patterns and nutritional choices.
+Countries with higher inflation rates and higher fast food density will tend to have higher obesity rates.
 
-Although these relationships are frequently discussed in public discourse, their actual statistical relationship across countries is not always clear.
+H2
 
-Therefore, this project aims to explore whether inflation rates and fast food density have measurable relationships with obesity rates.
+Higher fast food density per million people is associated with higher obesity rates.
 
-Research Questions
+H3
 
-This project focuses on the following research questions:
+Higher inflation rates are associated with changes in obesity rates due to changing food affordability and consumption patterns.
 
-Is there a relationship between inflation rates and obesity?
-Does fast food availability influence obesity rates?
-Do countries with higher fast food density exhibit higher obesity levels?
-Can inflation and fast food density together predict obesity rates using machine learning models?
-Hypotheses
-Inflation and Obesity
-H0 (Null Hypothesis): There is no relationship between inflation and obesity.
-H1 (Alternative Hypothesis): There is a relationship between inflation and obesity.
-Fast Food Density and Obesity
-H0: There is no relationship between fast food density and obesity.
-H1: There is a relationship between fast food density and obesity.
-Group Comparison
-H0: There is no difference in obesity rates between countries with high and low fast food density.
-H1: There is a difference.
-Dataset Description
+H4
 
-The final dataset contains country-level observations for the year 2022.
+Inflation and fast food density together can partially explain obesity differences across countries through machine learning and regression models.
 
-The following variables were used in the analysis:
+H0 (Null Hypothesis)
 
-Variable	Description
-country	Country name
-inflation_rate	Consumer price inflation (%)
-obesity_rate	Adult obesity prevalence (%)
-population	Total population
-fast_food_count	Number of McDonald’s locations
-fast_food_per_million	Fast food density normalized by population
+Inflation rates and fast food density have no statistically significant relationship with obesity rates.
 
-A new variable called fast_food_per_million was generated to standardize fast food availability across countries.
+4. Data Description
+Dataset	Variable(s)	Why Used
+World Bank – Inflation Data	Consumer price inflation (%)	Main economic indicator
+Our World in Data / WHO – Obesity Data	Adult obesity prevalence (%)	Main dependent variable
+World Bank – Population Data	Total population	Used for normalization
+Kaggle – McDonald’s Global Store Dataset	Number of McDonald’s locations by country	Indicator of fast food availability
+Final Variables Used
+inflation_rate
+obesity_rate
+population
+fast_food_count
+fast_food_per_million
 
-Data Sources
+A new variable called fast_food_per_million was generated to normalize fast food availability across countries.
 
-The project combines multiple publicly available datasets.
+5. Data Source and Collection
 
-Dataset	Source	Purpose
-Inflation Data	World Bank	Inflation analysis
-Population Data	World Bank	Population normalization
-Obesity Data	Our World in Data / WHO	Obesity prevalence
-Fast Food Data	Kaggle	McDonald’s store counts
-Data Collection and Preparation
+All datasets used in this project are publicly available and were collected from reliable international sources.
 
-The data collection process involved combining multiple datasets into a unified dataframe.
+The datasets were downloaded from:
 
-The preprocessing stage included:
+World Bank
+Our World in Data
+WHO-based obesity datasets
+Kaggle
 
-downloading datasets from public sources
+The data preparation process included:
+
 cleaning missing values
 reshaping World Bank datasets
 standardizing country names
 filtering for the year 2022
-merging datasets
-generating derived variables
+merging datasets into a unified dataframe
 
-The final processed dataset was stored as:
+Additionally, fast food density per million people was calculated to standardize fast food availability across countries.
 
-merged_dataset.csv
-Methodology
+All data used in this project are aggregated public datasets and do not contain personal information.
 
-The project follows a complete data science workflow.
+6. Methodology – How the Analysis Was Conducted
 
-1. Data Collection and Cleaning
+The project follows a structured data science workflow combining statistical analysis and machine learning methods.
 
-The raw datasets were cleaned and transformed into a consistent format before analysis.
+Exploratory Data Analysis (EDA)
 
-Key preprocessing steps:
-
-handling missing values
-reshaping datasets
-country-level standardization
-merging multiple datasets
-creating normalized variables
-2. Exploratory Data Analysis (EDA)
-
-EDA techniques were used to visually inspect distributions and relationships between variables.
+First, descriptive statistics and visualizations were used to observe relationships between variables.
 
 The following visualizations were created:
 
@@ -110,37 +94,35 @@ scatter plots
 correlation matrix
 boxplots
 
-EDA helped identify:
+These visualizations helped identify:
 
 weak correlations
 distribution patterns
 outliers
-variable relationships
-3. Hypothesis Testing
+variable dispersion
+Hypothesis Testing
 
-Several statistical methods were applied to evaluate whether the observed relationships were statistically significant.
+Several statistical tests were applied to evaluate whether the observed relationships were statistically significant.
 
 Pearson Correlation Tests
 
-Used to test relationships between:
+Used to test:
 
-inflation and obesity
-fast food density and obesity
+inflation vs obesity
+fast food density vs obesity
 Independent T-Test
 
 Used to compare obesity rates between:
 
 countries with high fast food density
 countries with low fast food density
-Regression Analysis
+Linear Regression Analysis
 
 Used to evaluate the combined explanatory effect of inflation and fast food density.
 
-4. Machine Learning Methods
+Machine Learning Methods
 
-Machine learning models were applied to investigate whether inflation and fast food density could predict obesity rates.
-
-The following models were implemented:
+The following machine learning models were implemented:
 
 Linear Regression
 Decision Tree Regressor
@@ -151,81 +133,61 @@ The models were evaluated using:
 RMSE
 MAE
 R² score
-Exploratory Data Analysis Findings
 
-The EDA stage suggested that:
+The purpose of the ML models was to investigate whether inflation and fast food density could predict obesity rates across countries.
 
-inflation and obesity show very weak relationships
-fast food density does not visually correlate strongly with obesity
-the variables exhibit substantial dispersion across countries
+7. Findings and Results
 
-The correlation matrix also indicated weak linear relationships between the variables.
+The analysis produced several important findings.
 
-Hypothesis Testing Results
+Inflation and obesity showed a very weak relationship.
+Fast food density did not demonstrate a statistically significant relationship with obesity.
+Countries with high fast food density did not significantly differ from countries with low fast food density in terms of obesity rates.
+Machine learning models demonstrated limited predictive performance.
 
-The statistical tests produced weak and statistically insignificant results.
+Among the ML models, Random Forest achieved the highest R² score, but the predictive power remained weak overall.
 
-Main findings:
+These results suggest that obesity is influenced by more complex economic, social, cultural, and behavioral factors beyond inflation and fast food availability alone.
 
-inflation and obesity are not significantly related
-fast food density and obesity are not significantly related
-countries with high fast food density do not significantly differ from countries with low fast food density
-
-These results suggest that the observed relationships are weak and may not be statistically meaningful.
-
-Machine Learning Results
-
-The machine learning models demonstrated limited predictive performance.
-
-Model Performance Summary
-Model	General Performance
-Linear Regression	Very weak
-Decision Tree	Weak
-Random Forest	Best among models, but still limited
-
-Although Random Forest achieved the highest R² score, the overall predictive power remained low.
-
-This indicates that:
-
-inflation and fast food density alone are not sufficient predictors of obesity
-obesity is likely influenced by more complex social, cultural, and behavioral factors
-Expected Results vs Actual Results
+8. Expected Results
 
 Initially, it was expected that:
 
-higher fast food density might be associated with higher obesity rates
-economic pressure could influence dietary behavior and obesity
+higher fast food density might correspond to higher obesity rates
+economic pressure and inflation could influence dietary behavior
+machine learning models could partially explain obesity differences across countries
 
-However, the analysis showed that:
+However, the analysis showed that these variables alone are not sufficient to strongly explain obesity differences.
 
-these variables alone do not strongly explain obesity differences across countries
-the predictive power of the models remained weak
+This highlights the complexity of obesity as a global issue and demonstrates the importance of considering additional variables such as:
 
-This highlights the complexity of obesity as a global issue.
+income levels
+healthcare systems
+physical activity
+cultural dietary habits
+social inequalities
+9. Limitations and Future Work
 
-Limitations
-
-This project has several limitations:
+This project has several limitations.
 
 limited number of explanatory variables
-country-level aggregated data
+use of country-level aggregated data
 use of a single fast food chain as a proxy
-analysis limited to one year
-possible cultural and socioeconomic confounding factors
-Future Work
+single-year analysis
+possible socioeconomic confounding factors
 
 Future studies could improve the analysis by including:
 
 GDP and income variables
 healthcare indicators
-physical activity metrics
-food consumption data
-urbanization variables
+physical activity data
+food consumption patterns
+urbanization indicators
 multi-year time series analysis
 
-Additional variables may improve both statistical analysis and machine learning performance.
+These additions may improve both statistical and machine learning performance.
 
-Project Structure
+10. Project Structure
 data/
   raw/
   processed/
@@ -238,7 +200,7 @@ notebooks/
 
 README.md
 requirements.txt
-Technologies Used
+11. Technologies Used
 Python
 Pandas
 NumPy
